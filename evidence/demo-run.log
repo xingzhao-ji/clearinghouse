@@ -1,0 +1,75 @@
+{
+  "run_id": "demo_1792779650589685000",
+  "utc": "2026-10-23T18:21:12Z",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "binary_sha256": "61d9700c03f268e578d864a4ac2b3f3dec6c01244ca75124aead1d62dec62784",
+  "go_version": "go version go1.26.2 darwin/arm64",
+  "source_sha256": {
+    "api.go": "0556cf3ab3f42b20c9006f0ee9b80eb38311e1db22576003a6f9ba259a585db1",
+    "bus.go": "7500a3d1b6c60cd4c493282726a960f3e43524e1cc0d58b5b0cd4ad8bf60ada7",
+    "bus_test.go": "c0c004de90f845da464fa4069794da5e521e2ed43649e80cbec67fa09928c6e4",
+    "cmd/clearinghouse/main.go": "61397f720095c3f421779b80e30cc6acdd1cb874fe7b3276ee3e1269c509676f",
+    "go.mod": "8473843d627fd449d4dba56d5e02b728da60de0d0b33970df1656b22b9670f2a",
+    "go.sum": "e284dc28fc17df433bc31901e0236f290e933694519a477cddb85f2d47bdb596",
+    "schema.sql": "7ce69e87e9489269847dcb693b8cfa1363d2124af3e76fa5656f28988916e0bc",
+    "scripts/demo.py": "6b7b65baec77206b77c8d8893cc4b1d4b42d468638922cf36682b02a58c8d694",
+    "store.go": "3d607acadfeaa1d6d08802039ce097c3ea5a173317bfb0a60d8e1f93306f4a53",
+    "store_test.go": "9cdaf9bb6ddc8e83c909617bb200e8c68c3fc80926cf9db17b9ddec46e9cb851"
+  },
+  "cpu_count": 14,
+  "database": "PostgreSQL 18 (local Docker VM)",
+  "broker": "NATS 2.12 JetStream (local Docker VM)",
+  "hot_accounts": {
+    "requests": 600,
+    "concurrency": 24,
+    "api_processes": 2,
+    "seconds": 5.678426291997312,
+    "requests_per_second": 105.66307796327104,
+    "p50_ms": 130.2242919919081,
+    "p95_ms": 695.4697910114191,
+    "p99_ms": 1135.541750001721,
+    "final_errors": 0,
+    "transient_503_retries": 0,
+    "latency_includes_retries": true
+  },
+  "spread_accounts": {
+    "requests": 600,
+    "concurrency": 24,
+    "api_processes": 2,
+    "seconds": 1.9425229999760631,
+    "requests_per_second": 308.87665165735154,
+    "p50_ms": 62.36800001352094,
+    "p95_ms": 154.52729200478643,
+    "p99_ms": 178.1247920007445,
+    "final_errors": 0,
+    "transient_503_retries": 0,
+    "latency_includes_retries": true
+  },
+  "duplicate_requests": 48,
+  "duplicate_effects": 1,
+  "consumer_outage_accepted": 50,
+  "consumer_outage_pending": 754,
+  "broker_outage": {
+    "executed": true,
+    "accepted_while_broker_down": 50,
+    "pending_during_outage": 50,
+    "pending_after_recovery": 0
+  },
+  "crash_retry_same_id": true,
+  "overspend_success": 10,
+  "overspend_rejected": 30,
+  "reconciliation": {
+    "currency": "USD",
+    "mismatches": 0,
+    "balance_total": 32000000,
+    "journal_net": 0,
+    "transfers": 1312
+  },
+  "summary": {
+    "currency": "USD",
+    "transfers": 1312,
+    "volume": 1001318,
+    "pending": 0
+  },
+  "limits": "Local host end-to-end HTTP measurements include Python client and VM overhead; not cloud capacity or an SLA."
+}

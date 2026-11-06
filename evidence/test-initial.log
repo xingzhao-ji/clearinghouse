@@ -1,0 +1,14 @@
+# clearinghouse [clearinghouse.test]
+./store_test.go:20:27: undefined: Store
+./store_test.go:29:6: undefined: Store
+./store_test.go:36:89: undefined: TransferRequest
+./store_test.go:39:42: undefined: TransferRequest
+./store_test.go:39:90: undefined: ErrConflict
+./store_test.go:44:101: undefined: TransferRequest
+./store_test.go:44:183: undefined: ErrFunds
+./store_test.go:51:19: undefined: TransferRequest
+./store_test.go:51:107: undefined: MaxAmount
+./store_test.go:51:174: undefined: ErrInvalid
+./store_test.go:51:174: too many errors
+FAIL	clearinghouse [build failed]
+FAIL

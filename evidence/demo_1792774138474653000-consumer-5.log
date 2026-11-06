@@ -1,0 +1,2 @@
+2026/10/23 09:49:03 ERROR worker retry mode=consumer error="nats: Server Shutdown"
+2026/10/23 09:49:05 ERROR worker retry mode=consumer error="nats: disconnected during fetch"

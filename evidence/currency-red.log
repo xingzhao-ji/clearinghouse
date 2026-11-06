@@ -1,0 +1,6 @@
+--- FAIL: TestTenantAndInputIsolation (0.04s)
+    store_test.go:152: mixed tenant currency accepted: <nil>
+FAIL
+FAIL	clearinghouse	0.259s
+?   	clearinghouse/cmd/clearinghouse	[no test files]
+FAIL

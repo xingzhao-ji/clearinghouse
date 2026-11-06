@@ -1,0 +1,23 @@
+package main
+import (
+ "context"
+ "encoding/json"
+ "fmt"
+ "time"
+ ch "clearinghouse"
+)
+func main(){
+ b, err := ch.ConnectBus("nats://127.0.0.1:54222",fmt.Sprintf("review_%d",time.Now().UnixNano())); if err != nil {panic(err)}
+ defer b.Connection.Close(); defer b.JS.DeleteStream(b.Stream)
+ info,err:=b.JS.StreamInfo(b.Stream); if err!=nil {panic(err)}
+ config:=info.Config; config.NoAck=true; if _,err=b.JS.UpdateStream(&config);err!=nil {panic(err)}
+ payload,_:=json.Marshal(ch.Transfer{ID:987,Tenant:"alpha",From:"alice",To:"bob",Amount:1,Currency:"USD"})
+ ctx,cancel:=context.WithCancel(context.Background()); defer cancel()
+ result:=make(chan error,1); start:=time.Now(); go func(){result<-b.Publish(ctx,payload)}()
+ select {case err:=<-result: fmt.Printf("returned_before_deadline err=%v elapsed=%s\n",err,time.Since(start))
+ case <-time.After(3200*time.Millisecond):
+  info,err:=b.JS.StreamInfo(b.Stream);if err!=nil {panic(err)}
+  fmt.Printf("publish_still_blocked_after=%s messages_persisted=%d configured_MaxWait=2s\n",time.Since(start),info.State.Msgs)
+  cancel(); fmt.Printf("manual_cancel_result=%v elapsed=%s\n",<-result,time.Since(start))
+ }
+}

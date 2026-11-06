@@ -1,0 +1,47 @@
+{
+  "verified_at_utc": "2026-10-23T18:21:43.661681+00:00",
+  "scope": "local host and Colima Linux containers, actual PostgreSQL18 and NATS2.12",
+  "checks": [
+    {
+      "command": "DATABASE_URL=... NATS_URL=... go test -race -count=1 ./...",
+      "result": "pass",
+      "test_functions": 10,
+      "log": "tests.log"
+    },
+    {
+      "command": "go vet ./...",
+      "result": "pass"
+    },
+    {
+      "command": "DEMO_BROKER_OUTAGE=1 python3 scripts/demo.py",
+      "result": "pass",
+      "evidence": "demo.json",
+      "reconciled_transfers": 1312
+    },
+    {
+      "command": "docker build -t clearinghouse-local .; python3 scripts/docker_smoke.py",
+      "result": "pass",
+      "evidence": "docker-smoke.json",
+      "image": "sha256:0c361c263e8a02d73f44f1bbff6d37dcabc94104349c08f53b7b3030edb279b9"
+    }
+  ],
+  "hosted_ci_executed": false,
+  "review": "Private hiring/baseline review omitted from this public export; see docs/PUBLICATION.md.",
+  "source_sha256": {
+    ".github/workflows/ci.yml": "84d9fe2c9169726f33fe1a225d85f56b7996bb8a219169a6b2b9dc6c1e9bda0d",
+    "Dockerfile": "f51bcb99fe9478e0685827df9f10ca217afbb0c95d9999f473d8d551cebe0353",
+    "Makefile": "7cbcffc11fa3cbf387a481ff176273225a721e849d22a6c1c785b643d89f057c",
+    "api.go": "0556cf3ab3f42b20c9006f0ee9b80eb38311e1db22576003a6f9ba259a585db1",
+    "bus.go": "7500a3d1b6c60cd4c493282726a960f3e43524e1cc0d58b5b0cd4ad8bf60ada7",
+    "bus_test.go": "c0c004de90f845da464fa4069794da5e521e2ed43649e80cbec67fa09928c6e4",
+    "cmd/clearinghouse/main.go": "61397f720095c3f421779b80e30cc6acdd1cb874fe7b3276ee3e1269c509676f",
+    "go.mod": "8473843d627fd449d4dba56d5e02b728da60de0d0b33970df1656b22b9670f2a",
+    "go.sum": "e284dc28fc17df433bc31901e0236f290e933694519a477cddb85f2d47bdb596",
+    "schema.sql": "7ce69e87e9489269847dcb693b8cfa1363d2124af3e76fa5656f28988916e0bc",
+    "scripts/demo.py": "6b7b65baec77206b77c8d8893cc4b1d4b42d468638922cf36682b02a58c8d694",
+    "scripts/docker_smoke.py": "228d0b95017834180fb69eae1558abb084d72553c7fe899d97efe8b7057f9176",
+    "scripts/services.sh": "306bf77428f9632ee0eca0327c73a91c8b86e0431eb407354f7e1c42bb66e8e7",
+    "store.go": "3d607acadfeaa1d6d08802039ce097c3ea5a173317bfb0a60d8e1f93306f4a53",
+    "store_test.go": "9cdaf9bb6ddc8e83c909617bb200e8c68c3fc80926cf9db17b9ddec46e9cb851"
+  }
+}

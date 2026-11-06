@@ -1,0 +1,24 @@
+{
+  "run_id": "container_1792780495544640000",
+  "image_id": "sha256:0c361c263e8a02d73f44f1bbff6d37dcabc94104349c08f53b7b3030edb279b9",
+  "runtime_user": "65532",
+  "read_only_root": true,
+  "memory_limit_bytes": 134217728,
+  "api_status": 201,
+  "transfer": {
+    "id": 1,
+    "tenant": "demo",
+    "from": "a0",
+    "to": "a1",
+    "amount": 11,
+    "currency": "USD"
+  },
+  "materialized": {
+    "currency": "USD",
+    "transfers": 1,
+    "volume": 11,
+    "pending": 0
+  },
+  "services": "3 Linux containers + PostgreSQL + NATS",
+  "scope": "local Colima Docker VM, not a cloud deployment"
+}

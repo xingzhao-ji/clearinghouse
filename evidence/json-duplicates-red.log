@@ -1,0 +1,11 @@
+2026/10/23 11:17:57 INFO http method=POST status=401 duration_ms=0 request_id=a23ce64b123857c8f6ce9db5
+2026/10/23 11:17:57 INFO http method=POST status=400 duration_ms=0 request_id=c35ca1ad6643aac6df8fecba
+2026/10/23 11:17:57 INFO http method=POST status=400 duration_ms=0 request_id=51d7e76544b99a56fe319ec9
+2026/10/23 11:17:57 INFO http method=POST status=400 duration_ms=0 request_id=d313c2fd26af25d27488895a
+2026/10/23 11:17:57 INFO http method=POST status=201 duration_ms=14 request_id=ffeccb5a77099b6a5c3f00cf
+--- FAIL: TestHTTPBoundary (0.07s)
+    store_test.go:227: want 400 got 201 {"id":1,"tenant":"alpha","from":"alice","to":"bob","amount":1,"currency":"USD"}
+FAIL
+FAIL	clearinghouse	0.367s
+?   	clearinghouse/cmd/clearinghouse	[no test files]
+FAIL

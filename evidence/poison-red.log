@@ -1,0 +1,6 @@
+--- FAIL: TestPoisonEventsAreQuarantinedWithoutBlockingValidDelivery (0.05s)
+    bus_test.go:102: valid event blocked: 0 malformed broker event: invalid character 'b' looking for beginning of object key string
+FAIL
+FAIL	clearinghouse	0.239s
+?   	clearinghouse/cmd/clearinghouse	[no test files]
+FAIL

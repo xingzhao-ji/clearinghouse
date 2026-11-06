@@ -1,0 +1,98 @@
+{
+  "recorded_at_utc": "2026-11-06T18:35:04.400376+00:00",
+  "scope": "Public export packaging checks only",
+  "checks": [
+    {
+      "name": "build",
+      "argv": [
+        "go",
+        "build",
+        "-trimpath",
+        "-o",
+        "<private-build-cache>/clearinghouse",
+        "./cmd/clearinghouse"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 20.236255791000076,
+      "peak_observed_group_rss_bytes": 415055872,
+      "peak_allocated_release_and_runtime_bytes": 366379008,
+      "result": "PASS",
+      "scope": "offline compilation/static syntax check"
+    },
+    {
+      "name": "compile-test-packages",
+      "argv": [
+        "go",
+        "test",
+        "-run",
+        "^$",
+        "-count=1",
+        "./..."
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 25.132264249999935,
+      "peak_observed_group_rss_bytes": 459292672,
+      "peak_allocated_release_and_runtime_bytes": 582991872,
+      "result": "PASS",
+      "scope": "test packages compiled; zero tests selected"
+    },
+    {
+      "name": "vet",
+      "argv": [
+        "go",
+        "vet",
+        "./..."
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 4.2801769999996395,
+      "peak_observed_group_rss_bytes": 107708416,
+      "peak_allocated_release_and_runtime_bytes": 388304896,
+      "result": "PASS",
+      "scope": "offline compilation/static syntax check"
+    },
+    {
+      "name": "python-syntax",
+      "argv": [
+        "python3",
+        "-B",
+        "-c",
+        "import ast,pathlib; paths=sorted(pathlib.Path(\"scripts\").glob(\"*.py\")); [ast.parse(p.read_text(),filename=str(p)) for p in paths]; print(\"Parsed\",len(paths),\"Python scripts without execution\")"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.3107919580006637,
+      "peak_observed_group_rss_bytes": 4669440,
+      "peak_allocated_release_and_runtime_bytes": 386789376,
+      "result": "PASS",
+      "scope": "offline compilation/static syntax check"
+    },
+    {
+      "name": "shell-syntax",
+      "argv": [
+        "bash",
+        "-n",
+        "scripts/services.sh"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.3105357089998506,
+      "peak_observed_group_rss_bytes": 1753088,
+      "peak_allocated_release_and_runtime_bytes": 386789376,
+      "result": "PASS",
+      "scope": "offline compilation/static syntax check"
+    }
+  ],
+  "go_version": "go1.26.2 darwin/arm64",
+  "dependency_downloads": false,
+  "test_functions_executed": 0,
+  "integration_tests_rerun": false,
+  "docker_or_service_startup": false,
+  "hosted_ci_executed": false,
+  "historical_evidence": "Accepted PostgreSQL/NATS integration and Docker results remain in verification.json, tests.log, demo.json and docker-smoke.json. They were not rerun for publication.",
+  "resource_limits": {
+    "command_timeout_seconds": 110,
+    "cpu_runtime_threads": 2,
+    "go_build_parallel_packages": 1,
+    "observed_group_rss_bytes": 2147483648,
+    "new_stage_and_runtime_bytes": 1073741824
+  },
+  "limitations": "Resource observations are sampled, not a hard OS sandbox or guaranteed instantaneous peak."
+}

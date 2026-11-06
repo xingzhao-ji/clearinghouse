@@ -1,0 +1,36 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  83.97kB
+Step 1/10 : FROM golang:1.26 AS build
+ ---> 672c944cfd07
+Step 2/10 : WORKDIR /src
+ ---> Using cache
+ ---> 211f13ad13ff
+Step 3/10 : COPY go.mod go.sum ./
+ ---> Using cache
+ ---> 4a843da66321
+Step 4/10 : RUN go mod download
+ ---> Using cache
+ ---> c3f403cbbc9c
+Step 5/10 : COPY . .
+ ---> f444d5ffa09f
+Step 6/10 : RUN CGO_ENABLED=0 go build -trimpath -o /clearinghouse ./cmd/clearinghouse
+ ---> Running in 4734ae6bfe45
+ ---> Removed intermediate container 4734ae6bfe45
+ ---> 44fa754b821d
+Step 7/10 : FROM gcr.io/distroless/static-debian12:nonroot
+ ---> afa5c872c891
+Step 8/10 : COPY --from=build /clearinghouse /clearinghouse
+ ---> b74705db9c2d
+Step 9/10 : ENTRYPOINT ["/clearinghouse"]
+ ---> Running in 8602ca53d354
+ ---> Removed intermediate container 8602ca53d354
+ ---> 6616ca1d9af9
+Step 10/10 : CMD ["-mode","api","-addr","0.0.0.0:8089"]
+ ---> Running in df69eb550ae7
+ ---> Removed intermediate container df69eb550ae7
+ ---> 0c361c263e8a
+Successfully built 0c361c263e8a
+Successfully tagged clearinghouse-local:latest

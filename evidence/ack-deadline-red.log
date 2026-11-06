@@ -1,0 +1,6 @@
+--- FAIL: TestPublishTimesOutWhenBrokerReplyIsLost (3.00s)
+    bus_test.go:146: publish with no parent deadline waited indefinitely for reply
+FAIL
+FAIL	clearinghouse	3.271s
+?   	clearinghouse/cmd/clearinghouse	[no test files]
+FAIL
